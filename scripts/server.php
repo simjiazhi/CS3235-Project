@@ -16,8 +16,8 @@
 		header("Location: ../test.php"); 
 		exit;
 	} else {
-		echo '<script language="javascript"> alert("Wrong Student ID or Password!");</script>'; 
-		$login = file_get_contents("login.html");
-		echo $login; 
+		echo '<script language="javascript"> alert("Wrong Student ID or Password!");window.location.href="../login.php"</script>'; 
+		//$login = file_get_contents("login.html");
+		//echo $login; 
 	}
 ?>
