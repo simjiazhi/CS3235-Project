@@ -57,6 +57,45 @@
 			var askPanel = document.getElementById("askQn");	
 			askPanel.style.display = "none";
 		}
+
+		function openQuizPanel() {
+			console.log("asking question");
+			var quizPanel = document.getElementById("enterQuiz");
+			quizPanel.style.display = "block";
+		}
+		
+		function closeQuizPanel() {
+			console.log("closing question");
+			var quizPanel = document.getElementById("enterQuiz");
+			quizPanel.style.display = "none";
+		}
+
+		$("#quizForm").submit(function(e){
+            e.preventDefault();
+            var req
+            req = $.ajax({
+                type: "POST",
+                url: "./quiz/verify_code.php",
+                data: $(this).serialize(),
+                processData: false
+            });
+            req.always(function (response) {
+                if (response.status == '200') {
+                  // console.log('http response: ' + response.status)
+                  // console.log(response.responseText)
+                  // console.log(response)
+                  // fix parseerror :(
+                  alert("Success!");
+                  var win = window.open('./quiz/q3235.php', '_blank');
+                  win.focus();
+                }
+                else {
+                  // console.log('Error status: ' + response.status);
+                  // console.log("Failure!")
+                  alert("Code is wrong!");
+                }
+            });
+        });
 	
 	</script>
 	
@@ -71,7 +110,7 @@
 	<div class = "sticky">
 			
 		<Button onClick = "askQuestion();">Ask Question</button>
-		<Button>Quiz</button>
+		<Button onClick = "openQuizPanel();">Quiz</button>
 	</div>
 	
 	<!-- need prevent sql injection here -->
@@ -85,6 +124,15 @@
 		<button class = "close">Submit</button>
 		
 		
+	</div>
+
+	<div class = "popup" id = "enterQuiz" style = "display: none">
+	    <button class = "close" onClick = "closeQuizPanel();">x</button>
+	    <form id="quizForm" method="post">
+	        <input type="text" name="quizCode">
+	        <input type="submit" value="Join Quiz Now!">
+	    </form>
+
 	</div>
 	
 
