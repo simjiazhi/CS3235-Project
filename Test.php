@@ -20,7 +20,8 @@
 			// prevent direct access
 			
 			if ($_SERVER['HTTP_REFERER'] == "http://127.0.0.1/CS3235/login.php") {
-				// continue
+				// continue checking
+				
 			} else {
 				header("Location: http://127.0.0.1/CS3235/login.php");
 				exit(); //Stop running the script
@@ -35,7 +36,18 @@
 			// once bssid and ssid is processed, delete it from session so it cannot not be 
 			// reused
 			session_destroy();
+			
+			// time test - change device time and see if it is reflected here
+			echo "<br>";
+			date_default_timezone_set('Asia/Singapore');
+			
+			$timestamp = time();
+			$date_time = date("d-m-Y (D) H:i:s", $timestamp);
+			echo "Current date and local time on this server is $date_time";
+		
 		?>
+		
+		
 	</body>
 </body>
 

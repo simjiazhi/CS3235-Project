@@ -1,4 +1,13 @@
 <?php
+
+	if ($_SERVER['HTTP_REFERER'] == "http://127.0.0.1/CS3235/login.php") {
+				// continue
+	} else {
+		header("Location: http://127.0.0.1/CS3235/login.php");
+		exit(); //Stop running the script
+		// go to form page again.
+	}
+
 	$matric = trim($_POST["matric"]);
 	$userpass = trim($_POST["userpass"]);
 	$found = false;
