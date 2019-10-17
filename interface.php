@@ -47,60 +47,6 @@
 	  
 	</style>
 	
-	<script type='text/javascript'>
-		function askQuestion() {
-			console.log("asking question");
-			var askPanel = document.getElementById("askQn");	
-			askPanel.style.display = "block";
-		}
-		
-		function closeQuestion() {
-			console.log("closing question");
-			var askPanel = document.getElementById("askQn");	
-			askPanel.style.display = "none";
-		}
-
-		function openQuizPanel() {
-			console.log("asking question");
-			var quizPanel = document.getElementById("enterQuiz");
-			quizPanel.style.display = "block";
-		}
-		
-		function closeQuizPanel() {
-			console.log("closing question");
-			var quizPanel = document.getElementById("enterQuiz");
-			quizPanel.style.display = "none";
-		}
-
-		$("#quizForm").submit(function(e){
-            e.preventDefault();
-            var req
-            req = $.ajax({
-                type: "POST",
-                url: "./quiz/verify_code.php",
-                data: $(this).serialize(),
-                processData: false
-            });
-            req.always(function (response) {
-                if (response.status == '200') {
-                  // console.log('http response: ' + response.status)
-                  // console.log(response.responseText)
-                  // console.log(response)
-                  // fix parseerror :(
-                  alert("Success!");
-                  var win = window.open('./quiz/q3235.php', '_blank');
-                  win.focus();
-                }
-                else {
-                  // console.log('Error status: ' + response.status);
-                  // console.log("Failure!")
-                  alert("Code is wrong!");
-                }
-            });
-        });
-	
-	</script>
-	
 </head>
 
 <body>
@@ -136,9 +82,61 @@
 	    </form>
 
 	</div>
-	
 
 </body>
+<script type='text/javascript'>
+	function askQuestion() {
+		var askPanel = document.getElementById("askQn");	
+		askPanel.style.display = "block";
+	}
+	
+	function closeQuestion() {
+		console.log("closing question");
+		var askPanel = document.getElementById("askQn");	
+		askPanel.style.display = "none";
+	}
+
+	function openQuizPanel() {
+		console.log("opening quiz panel");
+		var quizPanel = document.getElementById("enterQuiz");
+		quizPanel.style.display = "block";
+	}
+	
+	function closeQuizPanel() {
+		console.log("closing quiz panel");
+		var quizPanel = document.getElementById("enterQuiz");
+		quizPanel.style.display = "none";
+	}
+
+	$("#quizForm").submit(function(e){
+		console.log('quiz form function')
+        e.preventDefault();
+        var req
+        req = $.ajax({
+            type: "POST",
+            url: "/quiz/verify_code.php",
+            data: $(this).serialize(),
+            processData: false
+        });
+        req.always(function (response) {
+            if (response.status == '200') {
+              // console.log('http response: ' + response.status)
+              // console.log(response.responseText)
+              // console.log(response)
+              // fix parseerror :(
+              alert("Success!");
+              var win = window.open('/quiz/q3235.php', '_blank');
+              win.focus();
+            }
+            else {
+              // console.log('Error status: ' + response.status);
+              // console.log("Failure!")
+              alert("Code is wrong!");
+            }
+        });
+    });
+
+</script>
 
 
 </html>
