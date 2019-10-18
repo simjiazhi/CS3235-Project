@@ -25,10 +25,10 @@ try {
 
 $current_time = date('Y-m-d H:i:s');
 $time_diff_in_s = strtotime($current_time) - strtotime($generation_timestamp);
-
+echo $new_code;
 if ($student_code != null) {
 
-    if (($new_code == $student_code) && ($time_diff_in_s < 60)) {
+    if (($new_code === $student_code) && ($time_diff_in_s < 60)) {
         // OK
         http_response_code(200);
         echo json_encode(array('message' => 'Code is correct!'));
@@ -40,3 +40,4 @@ if ($student_code != null) {
 }
 
 ?>
+

@@ -2,6 +2,8 @@
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.5.0/js/md5.min.js"></script>
 
 	<title>Interface</title>
 	<style>
@@ -16,12 +18,25 @@
 	  
 		.popup {
 			position: fixed;
-			background-color: red;
 			bottom: 50;
 			left: 10;
 			z-index: 30;
 			border: 2px solid black;
 			padding: 10px;
+
+		}
+
+		.question {
+			background-color: #d6543a;
+		}
+		.quiz {
+			background-color: #89c0f0;				
+		}
+		.quizBox {
+			margin-bottom: 0;
+		}
+		.quizInput {
+			margin-bottom: 12px;
 		}
 	  
 		div.sticky {
@@ -57,13 +72,13 @@
 
 	<div class = "sticky">
 			
-		<Button onClick = "askQuestion();">Ask Question</button>
-		<Button onClick = "openQuizPanel();">Quiz</button>
+		<Button onClick = "toggleQuestionPanel();">Ask Question</button>
+		<Button onClick = "toggleQuizPanel();">Quiz</button>
 	</div>
 	
 	<!-- need prevent sql injection here -->
 	
-	<div class = "popup" id = "askQn" style = "display: none">
+	<div class = "popup question" id = "askQn" style = "display: none">
 		<button class = "close" onClick = "closeQuestion();">x</button>
 		<p><b>Ask a question:</b></p>
 		<textarea rows="4" cols="50" maxlength="200"></textarea>
@@ -74,10 +89,11 @@
 		
 	</div>
 
-	<div class = "popup" id = "enterQuiz" style = "display: none">
+	<div class = "popup quiz" id = "enterQuiz" style = "display: none">
 	    <button class = "close" onClick = "closeQuizPanel();">x</button>
-	    <form id="quizForm" method="post">
-	        <input type="text" name="quizCode">
+	    <form id="quizForm" class="quizBox" method="post">
+	    	<p><b>Enter quiz code:</b></p>
+	        <input type="text" class="quizInput" name="quizCode">
 	        <input type="submit" value="Join Quiz Now!">
 	    </form>
 
@@ -85,21 +101,38 @@
 
 </body>
 <script type='text/javascript'>
-	function askQuestion() {
-		var askPanel = document.getElementById("askQn");	
-		askPanel.style.display = "block";
+
+	var isQuestionPanelOpen = false;
+	var isQuizPanelOpen = false;
+	function toggleQuestionPanel() {
+		var askPanel = document.getElementById("askQn");
+		isQuestionPanelOpen = !isQuestionPanelOpen;
+		if (isQuestionPanelOpen) {
+			if (isQuizPanelOpen) {
+				toggleQuizPanel()				
+			}
+			askPanel.style.display = "block";
+		} else {
+			askPanel.style.display = "none";
+		}
 	}
 	
 	function closeQuestion() {
-		console.log("closing question");
 		var askPanel = document.getElementById("askQn");	
 		askPanel.style.display = "none";
 	}
 
-	function openQuizPanel() {
-		console.log("opening quiz panel");
+	function toggleQuizPanel() {
 		var quizPanel = document.getElementById("enterQuiz");
-		quizPanel.style.display = "block";
+		isQuizPanelOpen = !isQuizPanelOpen;
+		if (isQuizPanelOpen) {
+			if (isQuestionPanelOpen) {
+				toggleQuestionPanel()				
+			}
+			quizPanel.style.display = "block";
+		} else {
+			quizPanel.style.display = "none";
+		}
 	}
 	
 	function closeQuizPanel() {
@@ -109,19 +142,24 @@
 	}
 
 	$("#quizForm").submit(function(e){
-		console.log('quiz form function')
         e.preventDefault();
+
+        // convert input into md5 hash to be sent
+        var serialized_input = $(this).serialize()
+        var input = serialized_input.substring(9)
+        var hashedCode = md5(input)
+
         var req
         req = $.ajax({
             type: "POST",
             url: "/quiz/verify_code.php",
-            data: $(this).serialize(),
+            data: "quizCode=" + hashedCode,
             processData: false
         });
         req.always(function (response) {
             if (response.status == '200') {
               // console.log('http response: ' + response.status)
-              // console.log(response.responseText)
+              console.log(response.responseText)
               // console.log(response)
               // fix parseerror :(
               alert("Success!");
