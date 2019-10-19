@@ -4,10 +4,7 @@
 	$db_connection = new Database();
 	$conn = $db_connection->dbConnection();
 
-	//$data = json_decode(file_get_contents("scripts/approved.bssid"));
 	$arr = [];
-	$err = [];
-	$err[0] = "error";
 	
 	// will replace with database connection in due time
 	$handle = fopen("scripts/approved.bssid", "r") or exit("Cannot open secret file"); 
@@ -16,19 +13,26 @@
 		$sec = trim($words[0]);
 		array_push($arr,$sec);
 	}
-	
-	// check username and password
+
+
 	$found = false;
-	
-	if(isset($_GET["username"]) && isset($_GET["password"])){			
+
+	if(isset($_POST["username"]) && isset($_POST["password"])){			
 		
-		$uname = $_GET["username"];
-		$pw = $_GET["password"];
+		
+		$uname = $_POST["username"];
+		$pw = $_POST["password"];
 		
 		$sql = "SELECT * FROM students WHERE username = '$uname' AND password = '$pw'";
 		$result = $conn->query($sql);
 		
 		if($result->rowCount() > 0) {
+			//$arr[count($arr)] = md5(microtime());
+			$session_key = md5(microtime());
+			$sql = "INSERT INTO attempts VALUES('$uname','$session_key')";
+			$result = $conn->query($sql);
+			
+			array_push($arr,$session_key);
 			$found = true;
 		}
 		
@@ -40,23 +44,26 @@
 			$usr = trim($words[3]);
 			$pwd = trim($words[4]);
 			
-			if($usr == $_GET["username"] && $pwd == $_GET["password"]){
+			if($usr == $uname && $pwd == $pw){
 				$found = true; 
 			}
 		}
 		*/
-	}	
-	
+
+	}
 	
 	if($found) {
-		// print_r($arr);
+		
 		echo json_encode($arr, JSON_FORCE_OBJECT);
+		
 	}
 	else {
-		// print_r($err);
-		//return json_encode($err); 
 		header(http_response_code(400));
 	}
+
+	
+	
+	
 	
 	
 ?>
