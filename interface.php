@@ -1,7 +1,38 @@
 <html>
 
+<?php
+
+	require 'database.php';
+	$db_connection = new Database();
+	$conn = $db_connection->dbConnection();
+	
+	if(isset($_GET["a"]) || isset($_GET["b"]))
+	{
+		
+		$first = $_GET['a'];
+		$second = $_GET['b'];
+		$sql = "SELECT * FROM attempts WHERE student = '$first' AND session_key = '$second'";
+		$result = $conn->query($sql);
+		if($result->rowCount() > 0) {
+			echo "<script>alert('Greetings!')</script>";
+			// maybe delete the session key after interface.php have been reached
+		}
+		else {
+			header("Location: error.php");
+		}
+		
+	}
+	else 
+	{
+		header("Location: error.php");
+	}
+
+?>
+
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.5.0/js/md5.min.js"></script>
 
 	<title>Interface</title>
 	<style>
@@ -16,12 +47,25 @@
 	  
 		.popup {
 			position: fixed;
-			background-color: red;
 			bottom: 50;
 			left: 10;
 			z-index: 30;
 			border: 2px solid black;
 			padding: 10px;
+
+		}
+
+		.question {
+			background-color: #d6543a;
+		}
+		.quiz {
+			background-color: #89c0f0;				
+		}
+		.quizBox {
+			margin-bottom: 0;
+		}
+		.quizInput {
+			margin-bottom: 12px;
 		}
 	  
 		div.sticky {
@@ -47,60 +91,6 @@
 	  
 	</style>
 	
-	<script type='text/javascript'>
-		function askQuestion() {
-			console.log("asking question");
-			var askPanel = document.getElementById("askQn");	
-			askPanel.style.display = "block";
-		}
-		
-		function closeQuestion() {
-			console.log("closing question");
-			var askPanel = document.getElementById("askQn");	
-			askPanel.style.display = "none";
-		}
-
-		function openQuizPanel() {
-			console.log("asking question");
-			var quizPanel = document.getElementById("enterQuiz");
-			quizPanel.style.display = "block";
-		}
-		
-		function closeQuizPanel() {
-			console.log("closing question");
-			var quizPanel = document.getElementById("enterQuiz");
-			quizPanel.style.display = "none";
-		}
-
-		$("#quizForm").submit(function(e){
-            e.preventDefault();
-            var req
-            req = $.ajax({
-                type: "POST",
-                url: "./quiz/verify_code.php",
-                data: $(this).serialize(),
-                processData: false
-            });
-            req.always(function (response) {
-                if (response.status == '200') {
-                  // console.log('http response: ' + response.status)
-                  // console.log(response.responseText)
-                  // console.log(response)
-                  // fix parseerror :(
-                  alert("Success!");
-                  var win = window.open('./quiz/q3235.php', '_blank');
-                  win.focus();
-                }
-                else {
-                  // console.log('Error status: ' + response.status);
-                  // console.log("Failure!")
-                  alert("Code is wrong!");
-                }
-            });
-        });
-	
-	</script>
-	
 </head>
 
 <body>
@@ -111,13 +101,13 @@
 
 	<div class = "sticky">
 			
-		<Button onClick = "askQuestion();">Ask Question</button>
-		<Button onClick = "openQuizPanel();">Quiz</button>
+		<Button onClick = "toggleQuestionPanel();">Ask Question</button>
+		<Button onClick = "toggleQuizPanel();">Quiz</button>
 	</div>
 	
 	<!-- need prevent sql injection here -->
 	
-	<div class = "popup" id = "askQn" style = "display: none">
+	<div class = "popup question" id = "askQn" style = "display: none">
 		<button class = "close" onClick = "closeQuestion();">x</button>
 		<p><b>Ask a question:</b></p>
 		<textarea rows="4" cols="50" maxlength="200"></textarea>
@@ -128,43 +118,94 @@
 		
 	</div>
 
-	<div class = "popup" id = "enterQuiz" style = "display: none">
+	<div class = "popup quiz" id = "enterQuiz" style = "display: none">
 	    <button class = "close" onClick = "closeQuizPanel();">x</button>
-	    <form id="quizForm" method="post">
-	        <input type="text" name="quizCode">
+	    <form id="quizForm" class="quizBox" method="post">
+	    	<p><b>Enter quiz code:</b></p>
+	        <input type="text" class="quizInput" name="quizCode">
 	        <input type="submit" value="Join Quiz Now!">
 	    </form>
 
 	</div>
-	
 
 </body>
-<?php
 
-	require 'database.php';
-	$db_connection = new Database();
-	$conn = $db_connection->dbConnection();
+<script type='text/javascript'>
+
+	var isQuestionPanelOpen = false;
+	var isQuizPanelOpen = false;
+	function toggleQuestionPanel() {
+		var askPanel = document.getElementById("askQn");
+		isQuestionPanelOpen = !isQuestionPanelOpen;
+		if (isQuestionPanelOpen) {
+			if (isQuizPanelOpen) {
+				toggleQuizPanel()				
+			}
+			askPanel.style.display = "block";
+		} else {
+			askPanel.style.display = "none";
+		}
+	}
 	
-	if(isset($_GET["a"]) || isset($_GET["b"]))
-	{
-		
-		$first = $_GET['a'];
-		$second = $_GET['b'];
-		$sql = "SELECT * FROM attempts WHERE student = '$first' AND session_key = '$second'";
-		$result = $conn->query($sql);
-		if($result->rowCount() > 0) {
-			echo "<script>alert('Greetings!')</script>";
-		}
-		else {
-			header("Location: error.php");
-		}
-		
-	}
-	else 
-	{
-		header("Location: error.php");
+	function closeQuestion() {
+		var askPanel = document.getElementById("askQn");	
+		askPanel.style.display = "none";
 	}
 
-?>
+	function toggleQuizPanel() {
+		var quizPanel = document.getElementById("enterQuiz");
+		isQuizPanelOpen = !isQuizPanelOpen;
+		if (isQuizPanelOpen) {
+			if (isQuestionPanelOpen) {
+				toggleQuestionPanel()				
+			}
+			quizPanel.style.display = "block";
+		} else {
+			quizPanel.style.display = "none";
+		}
+	}
+	
+	function closeQuizPanel() {
+		console.log("closing quiz panel");
+		var quizPanel = document.getElementById("enterQuiz");
+		quizPanel.style.display = "none";
+	}
+
+	$("#quizForm").submit(function(e){
+        e.preventDefault();
+
+        // convert input into md5 hash to be sent
+        var serialized_input = $(this).serialize()
+        var input = serialized_input.substring(9)
+        var hashedCode = md5(input)
+
+        var req
+        req = $.ajax({
+            type: "POST",
+            url: "/quiz/verify_code.php",
+            data: "quizCode=" + hashedCode,
+            processData: false
+        });
+        req.always(function (response) {
+            if (response.status == '200') {
+              // console.log('http response: ' + response.status)
+              console.log(response.responseText)
+              // console.log(response)
+              // fix parseerror :(
+              alert("Success!");
+              var win = window.open('/quiz/q3235.php', '_blank');
+              win.focus();
+            }
+            else {
+              // console.log('Error status: ' + response.status);
+              // console.log("Failure!")
+              alert("Code is wrong!");
+            }
+        });
+    });
+
+</script>
+
+
 
 </html>
