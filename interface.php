@@ -139,6 +139,32 @@
 	
 
 </body>
+<?php
 
+	require 'database.php';
+	$db_connection = new Database();
+	$conn = $db_connection->dbConnection();
+	
+	if(isset($_GET["a"]) || isset($_GET["b"]))
+	{
+		
+		$first = $_GET['a'];
+		$second = $_GET['b'];
+		$sql = "SELECT * FROM attempts WHERE student = '$first' AND session_key = '$second'";
+		$result = $conn->query($sql);
+		if($result->rowCount() > 0) {
+			echo "<script>alert('Greetings!')</script>";
+		}
+		else {
+			header("Location: error.php");
+		}
+		
+	}
+	else 
+	{
+		header("Location: error.php");
+	}
+
+?>
 
 </html>
