@@ -16,7 +16,7 @@
 		$words = explode(',', $buffer); 
 		$usr = trim($words[3]);
 		$pwd = trim($words[4]);
-		if($usr == $matric && $pwd == $userpass){
+		if($usr == $matric && sha1($pwd) == $userpass){
 			$found = true; 
 		}
 	}
