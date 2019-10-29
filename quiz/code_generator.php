@@ -6,7 +6,7 @@ $conn = $db_connection->dbConnection();
 
 $unique_string = bin2hex(random_bytes(20));
 $new_code = substr($unique_string, 0, 6); 
-$hashed_code = md5($new_code);
+$hashed_code = sha1($new_code);
 
 echo "Deleting previous code!\n";
 try {
