@@ -2,30 +2,42 @@
 
 <?php
 
-	// require 'database.php';
-	// $db_connection = new Database();
-	// $conn = $db_connection->dbConnection();
+	require 'database.php';
+	$db_connection = new Database();
+	$conn = $db_connection->dbConnection();
 	
-	// if(isset($_GET["a"]) || isset($_GET["b"]))
-	// {
+	// authenticate using attempts
+	// comment out if testing
+	if(isset($_GET["a"]) || isset($_GET["b"]))
+	{
 		
-	// 	$first = $_GET['a'];
-	// 	$second = $_GET['b'];
-	// 	$sql = "SELECT * FROM attempts WHERE student = '$first' AND session_key = '$second'";
-	// 	$result = $conn->query($sql);
-	// 	if($result->rowCount() > 0) {
-	// 		echo "<script>alert('Greetings!')</script>";
-	// 		// maybe delete the session key after interface.php have been reached
-	// 	}
-	// 	else {
-	// 		header("Location: error.php");
-	// 	}
+		$first = $_GET['a'];
+		$second = $_GET['b'];
+			
+		$sql = "SELECT * FROM attempts a, students s WHERE a.student = s.h_username AND a.student='$first' AND a.session_key='$second' AND a.used = 1";
+						
+		$result = $conn->query($sql);
+		if($result->rowCount() > 0) {
+			
+			$row = $result->fetch();
+			$_SESSION["username"] = $row["username"];
+			
+			// update flag so that it cannot be used again
+			$update_sql = "UPDATE attempts SET used = 2 WHERE student = '$first' AND session_key = '$second'";
+			$result2 = $conn->query($update_sql);
+			
+			// echo "<script>alert('Hello!');</script>";
+		}
+		else {
+			header("Location: error.php");
+		}
 		
-	// }
-	// else 
-	// {
-	// 	header("Location: error.php");
-	// }
+	}
+	else 
+	{
+		header("Location: error.php");
+	}
+
 
 ?>
 
