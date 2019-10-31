@@ -2,37 +2,37 @@
 
 <?php
 
-	require 'database.php';
-	$db_connection = new Database();
-	$conn = $db_connection->dbConnection();
+	// require 'database.php';
+	// $db_connection = new Database();
+	// $conn = $db_connection->dbConnection();
 	
-	if(isset($_GET["a"]) || isset($_GET["b"]))
-	{
+	// if(isset($_GET["a"]) || isset($_GET["b"]))
+	// {
 		
-		$first = $_GET['a'];
-		$second = $_GET['b'];
-		$sql = "SELECT * FROM attempts WHERE student = '$first' AND session_key = '$second'";
-		$result = $conn->query($sql);
-		if($result->rowCount() > 0) {
-			echo "<script>alert('Greetings!')</script>";
-			// maybe delete the session key after interface.php have been reached
-		}
-		else {
-			header("Location: error.php");
-		}
+	// 	$first = $_GET['a'];
+	// 	$second = $_GET['b'];
+	// 	$sql = "SELECT * FROM attempts WHERE student = '$first' AND session_key = '$second'";
+	// 	$result = $conn->query($sql);
+	// 	if($result->rowCount() > 0) {
+	// 		echo "<script>alert('Greetings!')</script>";
+	// 		// maybe delete the session key after interface.php have been reached
+	// 	}
+	// 	else {
+	// 		header("Location: error.php");
+	// 	}
 		
-	}
-	else 
-	{
-		header("Location: error.php");
-	}
+	// }
+	// else 
+	// {
+	// 	header("Location: error.php");
+	// }
 
 ?>
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.5.0/js/md5.min.js"></script>
+	<script src="scripts/encryption.js"></script>
 
 	<title>Interface</title>
 	<style>
@@ -177,7 +177,7 @@
         // convert input into md5 hash to be sent
         var serialized_input = $(this).serialize()
         var input = serialized_input.substring(9)
-        var hashedCode = md5(input)
+        var hashedCode = sha1(input)
 
         var req
         req = $.ajax({
@@ -205,7 +205,5 @@
     });
 
 </script>
-
-
 
 </html>

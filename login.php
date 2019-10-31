@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="scripts/encryption.js"></script>
 <title>Login</title>
-<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<form name="login" action="scripts/server.php" onsubmit="return validateForm();" method="post">
+Student ID: <input type="text" name="matric"/><br/>
+Student Password: <input type="password" name="userpass"/><br/>
+<input type="submit" value="Enter"/>
 <script>
 	function validateForm(){
 		var matric = document.forms["login"]["matric"].value;
@@ -11,15 +17,11 @@
 			alert("Please fill in all fields!");
 			return false;
 		}
+		else{
+			document.forms["login"]["userpass"].value = sha1(userpass);
+		}
 	}
 </script>
-</head>
-<body onload = "">
-
-<form name="login" action="scripts/server.php" onsubmit="return validateForm();" method="post">
-Student ID: <input type="text" name="matric"/><br/>
-Student Password: <input type="password" name="userpass"/><br/>
-<input type="submit" value="Enter"/>
 </form>
 
 </body>
