@@ -14,19 +14,23 @@
 		$first = $_GET['a'];
 		$second = $_GET['b'];
 			
-		$sql = "SELECT * FROM attempts a, students s WHERE a.student = s.h_username AND a.student='$first' AND a.session_key='$second' AND a.used = 1";
-						
-		$result = $conn->query($sql);
-		if($result->rowCount() > 0) {
-			
-			$row = $result->fetch();
+		$sql = $conn->prepare("SELECT * FROM attempts a, students s WHERE a.student = s.h_username AND a.student= :first AND 		a.session_key=:second AND a.used = 1");
+		$sql->bindValue(':first', $first);
+		$sql->bindValue(':second', $second);
+		$sql->execute();
+		
+		if($sql->rowCount() > 0) {
+			// session storing current username
+			$row = $sql->fetch();
 			$_SESSION["username"] = $row["username"];
 			
 			// update flag so that it cannot be used again
-			$update_sql = "UPDATE attempts SET used = 2 WHERE student = '$first' AND session_key = '$second'";
-			$result2 = $conn->query($update_sql);
+			$update_sql = $conn->prepare("UPDATE attempts SET used = 2 WHERE student = :first AND session_key = :second");
+			$update_sql->bindValue(':first', $first);
+			$update_sql->bindValue(':second', $second);
+			$update_sql->execute();
 			
-			// echo "<script>alert('Hello!');</script>";
+			echo "<script>alert('Logged in as ".$_SESSION['username']."');</script>";
 		}
 		else {
 			header("Location: error.php");
