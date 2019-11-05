@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="canvas.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../btlit/stdlibs/three.min.js"></script>
+<script type="text/javascript" src="../btlit/stdlibs/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../btlit/stdlibs/json2.js"></script>
+<link href="../btlit/StarWars/starwars.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../btlit/camera/initcam.js"></script>
+
+<meta charset="utf-8">
+<title>CS3235 topic 1 presentation</title>
+
+</head>
+<body>
+
+<script type="text/javascript" src="cs2107.js"></script>
+
+<script type="text/javascript" src="topic1/media-for-topic1.js?xxx=11"></script>
+<script type="text/javascript" src="topic1/questions.js"></script>
+
+<script type="text/javascript" src="cs2107windowspecs.js"></script>
+
+
+<script>
+   var quizzing = false;
+</script>
+<script type="text/javascript" src="../btlit/javascript/interaction.js?xxx=11"></script>
+<script>
+    bringContainerToFront(3);
+</script>
+<script>
+mrblobbyContainerID = 14;
+</script>
+
+<script type="text/javascript" src="../btlit/mrblobby/mrblobby.js"></script>
+<script type="text/javascript" src="../btlit/timer/timerCountdown.js"></script>
+<script type="text/javascript" src="../btlit/ConfettiCam/confetti.js?xxx=11"></script>
+<script type="text/javascript" src="../btlit/quizzes/quiz.js?xxx=11"></script>
+
+<script type="text/javascript" src="../btlit/drawing/draw1.js"></script>
+<script type="text/javascript" src="../btlit/javascript/greenscreen.js?xxx=11"></script>
+
+<!-- new scripts -->
+<script src="/scripts/encryption.js"></script>
+
+<h2><div id="quizCode" style="position: absolute; margin-left: 30%; margin-bottom:32px; width: 400px; height: 250px; background: #318dde; border: 8px solid black; display:none; z-index: 0; text-align: center; padding-top: 25%"></div></h2>
+<script>
+	var randomHex = '';
+	function dec2hex (dec) {
+	  return ('0' + dec.toString(16)).substr(-2)
+	}
+
+	// generateHex :: Integer -> String
+	function generateHex (len) {
+	  var arr = new Uint8Array((len || 40) / 2)
+	  window.crypto.getRandomValues(arr)
+	  return Array.from(arr, dec2hex).join('')
+	}
+
+	var quizCodeBox = document.getElementById('quizCode'); 
+	quizCodeBox.addEventListener('quizTriggered', function() {
+		console.log('quiz key selected!')
+
+		// generate new quiz code
+		randomHex = generateHex(8)
+		var hashedCode = sha1(randomHex)
+
+		// call code_generator.php
+		console.log('created new randomHex code ' + randomHex)
+		console.log('created new hashed code ' + hashedCode)
+		var req
+		req = $.ajax({
+		    type: "POST",
+		    url: "../../quiz/code_generator.php",
+		    data: "quizCode=" + hashedCode,
+		    processData: false,
+			statusCode: {
+				200: function(xhr) {
+					console.log(xhr);
+					document.getElementById('quizCode').innerHTML = 'The quiz code is: ' + randomHex
+					document.getElementById('quizCode').style.display = "block"
+					document.getElementById('quizCode').style.zIndex = 15					
+					setTimeout(function() {
+						document.getElementById('quizCode').style.display = "none"
+						document.getElementById('quizCode').style.zIndex = 0	
+						}, 60000);
+				}
+			}
+		});
+		req.always(function (data, textStatus) {
+		    if (data == '200') {
+		      console.log(data)
+		    }
+		    else {
+		      console.log("failed: " + textStatus)
+		    }
+		});
+	})
+
+</script>
+
+</body>
+</html>

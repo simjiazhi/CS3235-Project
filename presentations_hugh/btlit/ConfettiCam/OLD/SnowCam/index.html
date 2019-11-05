@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SnowCam</title>
+    <script type="text/javascript" src="lib/webcam.js"></script>
+    <script type="text/javascript" src="lib/snow.js"></script>
+
+    <link href="stylesheets/snow.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <video id="camOriginal" width="640" height="480"></video>
+    <canvas id="tmpCanvas" width="640" height="480"></canvas>
+    <canvas id="camCanvas" width="640" height="480"></canvas>
+    <div id="snowCanvasDiv" style="visibility: hidden">
+    <canvas id="snowCanvas" width="640" height="480"></canvas>
+</div>
+    <script type="text/javascript" src="lib/snowMain.js"></script>
+    
+    <button onclick="merge()" style="position:relative">(Un)Merge</button>
+    <button onclick="hideSnowToggle()" style="position:relative">Release</button>
+  </body>
+</html>

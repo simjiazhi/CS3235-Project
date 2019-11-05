@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CS3235 media and links during lectures</title>
+</head>
+<body>
+
+<h2><a name="Topic 1"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 1 (Introduction to IT Security), with slides <a href="topic1/Lect1ITsecurity.pdf">here</a>,
+  and a handout for this part of the lecture is <a href="topic1/HandoutITsecurity.pdf">here</a>.</h2>
+
+<ul>
+  <li>Videos:
+    <ul>
+      <li>Video of someone installing a card skimmer <a href="../movies/atmpanel2.mp4">here</a>.</li>
+      <li>Video of another (really big!) card skimmer <a href="../movies/ATM2X.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>Lecturer's home page is <a href="http://www.comp.nus.edu.sg/~hugh/">here</a>.</li>
+      <li>Ross Anderson's Security Engineering book web page is <a href="http://www.cl.cam.ac.uk/~rja14/book.html">here</a>,
+          and a copy of the book is here: <a href="../cs2107/lect1/sev2.pdf">here</a>.</li>
+      <li>The IVLE is <a href="http://ivle.nus.edu.sg/">here</a>.</li>
+      <li>Information Security Training Courses <a href="https://www.sans.org/courses">here</a>.</li>
+      <li>IBM security site <a href="http://www.ibm.com/security/solutions/">here</a>.</li>
+      <li>The "Information Warfare" Norse web site is <a href="http://www.norse-corp.com/">here</a>.</li>
+      <li>The "Information Warfare" Kaspersky web site is <a href="https://cybermap.kaspersky.com/">here</a>.</li>
+      <li>The "Information Warfare" Fortiguard web site is <a href="https://threatmap.fortiguard.com/">here</a>.</li>
+      <li>Hack this site <a href="http://www.hackthissite.org/">here</a>.</li>
+      <li>Emanuel Nwude (Nigerian scammer) <a href="https://en.wikipedia.org/wiki/Emmanuel_Nwude">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 2"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 2 (Complexity), with slides <a href="topic2/Lect2Complexity.pdf">here</a>,
+  and a handout for this part of the lecture is <a href="topic2/HandoutLect2Complexity.pdf">here</a>.</h2>
+
+<ul>
+  <li>Videos:
+    <ul>
+      <li>The Ariane5 explosion <a href="../movies/ariane.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>Data diodes <a href="https://www.commoncriteriaportal.org/files/epfiles/st_vid9513-st.pdf">here</a>.</li>
+      <li>Design Principles paper <a href="topic2/protection_information.pdf">here</a>.</li>
+      <li>Another take on design principles <a href="http://emergentchaos.com/the-security-principles-of-saltzer-and-schroeder">here</a>.</li>
+      <li>Standards documents, the Rainbow documents <a href="https://fas.org/irp/nsa/rainbow/std001.htm">here</a>.</li>
+      <li>Standards documents, CCEVS documents <a href="https://www.niap-ccevs.org/Documents_and_Guidance/guidance_docs.cfm">here</a>.</li>
+      <li> Wikipedia on ITSEC <a href="https://en.wikipedia.org/wiki/ITSEC">here </a>.</li>
+      <li> Wikipedia on BLP <a href="https://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model">here</a>.</li>
+      <li> Wikipedia on BIBA <a href="https://en.wikipedia.org/wiki/Biba_Model">here</a>.</li>
+      <li> Wikipedia on Chinese Wall <a href="https://en.wikipedia.org/wiki/Brewer_and_Nash_model">here</a>.</li>
+      <li> Wikipedia on Model Checking <a href="https://en.wikipedia.org/wiki/Model_checking">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 3"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 3 (Symmetric Cryptography), with slides <a href="topic3/Lect3Crypto1.pdf">here</a>,
+ and a handout for this part of the lecture is <a href="topic3/HandoutCrypto.pdf">here</a>.
+ In addition, there is a handout with mathematical foundations for this part of the course  <a href="topic3/HandoutLect3MathematicalFoundations.pdf">here</a>.</h2>
+
+<ul>
+  <li>Videos:
+    <ul>
+      <li>(From a film) Julius Caesar explaining why the Caesar cipher is so awesome <a href="../movies/juliuscaesarsrt.mp4">here</a>.</li>
+      <li>Famous "Enigma" owner <a href="../movies/mickJagger.mp4">here</a>.</li>
+      <li>(From a film) Explanation of the Enigma <a href="../movies/EnigmaClip1srt.mp4">here</a>.</li>
+      <li>(From a film) Demonstration of Mick's Enigma <a href="../movies/EnigmaClip2srt.mp4">here</a>.</li>
+      <li>Dr Grime showing the insides of the Enigma <a href="../movies/grimeEnigma.mp4">here</a>.</li>
+      <li>Software consultant (Joker) explaining why AES better than DES <a href="../movies/Joker.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>Wikipedia Enigma <a href="http://en.wikipedia.org/wiki/Enigma_machine">here</a>.</li>
+      <li>Wikipedia on block ciphers <a href="http://en.wikipedia.org/wiki/Block_cipher">here</a>.</li>
+      <li>Wikipedia on stream ciphers <a href="http://en.wikipedia.org/wiki/Stream_cipher">here</a>.</li>
+q      <li>The mystic oracle <a href="https://www.ucl.ac.uk/GrandLatMisc/oracle.html">here</a>.</li>
+      <li>Wikipedia on DES <a href="http://en.wikipedia.org/wiki/Data_Encryption_Standard">here</a>.</li>
+      <li>Wikipedia on AES <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">here</a>.</li>
+      <li>Wikipedia on the S-box used in AES <a href="https://en.wikipedia.org/wiki/Rijndael_S-box">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 4"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 4 (Asymmetric and Quantum Cryptography), with slides <a href="topic4/Lect4Crypto2.pdf">here</a>.</h2>
+
+<ul>
+  <li>Guest lecture:
+    <ul>
+      <li>Prof Neko Kanochi on Diffie Hellman key exchange <a href="../movies/BadWorld.mp4">here</a>.</li>
+      <li>Text of talk by Prof Neko Kanochi <a href="topic4/MadWorldSubtitles.pdf">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>The 1976 Diffie Hellman paper <a href="http://www-ee.stanford.edu/~hellman/publications/24.pdf">here</a>.</li>
+      <li>Wikipedia on algebraic number fields <a href="http://en.wikipedia.org/wiki/Algebraic_number_field">here</a>.</li>
+      <li>Wikipedia on Quadratic Residues <a href="http://en.wikipedia.org/wiki/Quadratic_residue">here</a>.</li>
+      <li>Wikipedia on RSA <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">here</a>.</li>
+      <li>Wikipedia on ECC <a href="https://en.wikipedia.org/wiki/Elliptic_curve_cryptography">here</a>.</li>
+      <li>Here is an online ECC calculator, for checking results <a href="http://www.christelbach.com/ECCalculator.aspx">here</a>.</li>
+      <li>Wikipedia on Shor's algorithm <a href="http://en.wikipedia.org/wiki/Shor's_algorithm">here</a>.</li>
+      <li>Simulation and explanation of Shor's algorithm <a href="http://www.comp.nus.edu.sg/~hugh/presentations/clock/clock2.html">here</a>.</li>
+      <li>Quantum key distribution <a href="http://en.wikipedia.org/wiki/Quantum_key_distribution">here</a>.</li>
+     </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 5"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 5 (Introduction to networks), with slides <a href="topic5/Lect5Comms.pdf">here</a>,
+and a handout is <a href="topic5/HandoutLect5Comms.pdf">here</a>, and <a href="topic5/HandoutLect5CommTheory.pdf">here</a>.
+</h2>
+
+<ul>
+  <li>Videos:
+    <ul>
+      <li>Stuxnet: defenceless balloon being destroyed <a href="../movies/stuxnet.mp4">here</a>.</li>
+      <li>Diesel engine being destroyed <a href="../movies/Diesel.mp4">here</a>.</li>
+      <li>Video on Tempest (sniffing keyboards) <a href="../movies/keyboardsniff.mp4">here</a>.</li>
+      <li>Video on Jin Zhou's FYP (sniffing VGA cables) <a href="../movies/ICanSee.mp4">here</a>.</li>
+      <li>The MIFARE hack <a href="../movies/mifare.mp4">here</a>.</li>
+      <li>Previous year project <a href="../movies/CS3235-01.mp4">here</a>.</li>
+      <li>Video about reading credit cards remotely <a href="../movies/rfid.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>Wikipedia on PLCs <a href="http://en.wikipedia.org/wiki/Programmable_logic_controller">here</a>.</li>
+      <li>Maroochy attack <a href="https://www.mitre.org/sites/default/files/pdf/08_1145.pdf">here</a>.</li>
+      <li>Wikipedia on Stuxnet <a href="http://en.wikipedia.org/wiki/Stuxnet">here</a>.</li>
+      <li>Tempest - Van Eck <a href="http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.35.1695">here</a>.</li>
+      <li>Tempest - Jin Zhou's FYP on attack on VGA cable <a href="topic5/JinZhouFYPOnTempest.pdf">here</a>.</li>
+      <li>Tempest - protection against it <a href="http://www.cs.rice.edu/~dwallach/courses/comp527_s2000/ih98-tempest.pdf">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 6"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 6 (IP networks), with slides <a href="topic6/Lect6Internet.pdf">here</a>,
+and a handout is <a href="topic6/HandoutLect6IPNetworks.pdf">here</a>.
+</h2>
+
+<ul>
+  <li>Guest lectures:
+    <ul>
+      <li>Prof Neko Kanochi on Network Insecurity <a href="../movies/Everywhere.mp4">here</a>.</li>
+      <li>Text of the network insecurity talk by Prof Neko Kanochi <a href="topic6/Everywhere.pdf">here</a>.</li>
+    </ul>
+  </li>
+  <li>Videos:
+    <ul>
+       <li>Moss introduces Jen to the Internet (The IT crowd) <a href="../movies/ITcrowd1.mp4">here</a>.</li>
+       <li>Jen introduces the Internet to the shareholders (The IT crowd) <a href="../movies/ITcrowd2.mp4">here</a>.</li>
+      <li>A large video (101M) on ARP and DNS spoofing <a href="../movies/ARPDNS.mp4">here</a>.</li>
+      <li>A larger video (162M) on MiTM and snooping on passwords <a href="../movies/MITM.mp4">here</a>.</li>
+      <li>Video on use of nmap (Trinity/matrix) <a href="../movies/matrix.mp4">here</a>.</li>
+      <li>Layer 4 attacks (Sam Browne) <a href="../movies/SamBrowneLayer4.mp4">here</a>.</li>
+      <li>Layer 7 attacks (Sam Browne) <a href="../movies/SamBrowneLayer7.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+       <li>Firesheep <a href="http://codebutler.github.io/firesheep/">here</a>.</li>
+       <li>A PDF (16M) on layer4&7 DoD attacks <a href="topic6/ffoilsEWeekDoS.pdf">here</a> (20 minutes). This PDF has sound and video in it, and should be playable from Adobe Acrobat Reader, or also on ezPDF reader on Android.</li>
+      <li>ARP spoofing <a href="http://en.wikipedia.org/wiki/ARP_spoofing">here</a>.</li>
+      <li>SSHv1 CRC32 (This dates the matrix) <a href="https://tools.cisco.com/security/center/viewAlert.x?alertId=1817">here</a>.</li>
+      <li>Wikipedia on Transport Layer Security (TLS) <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security">here</a>.</li>
+      <li>MiTM on TLS <a href="http://www.ietf.org/mail-archive/web/tls/current/msg03928.html">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 7"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">Topic 7 (Hashes and signatures), with slides <a href="topic7/Lect7HashFunctions.pdf">here</a></h2>
+<ul>
+  <li>Useful URLs:
+    <ul>
+      <li>Wikipedia on cryptographic hash functions <a href="http://en.wikipedia.org/wiki/Cryptographic_hash_functions">here</a>.</li>
+      <li>Wikipedia on birthday attacks <a href="http://en.wikipedia.org/wiki/Birthday_attack">here</a>.</li>
+      <li>A description of rainbow tables <a href="http://kestas.kuliukas.com/RainbowTables/">here</a>.</li>
+      <li>The MD5 collision paper <a href="http://eprint.iacr.org/2004/199.pdf">here</a>.</li>
+      <li>Wikipedia on MD5 <a href="http://en.wikipedia.org/wiki/MD5">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 8"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 8 (Web Applications 1), with slides <a href="topic8/Lect8WebApplications.pdf">here</a>,
+and a handout  <a href="topic8/HandoutLect8WebApplications.pdf">here</a>.</h2>
+
+<ul>
+  <li>Videos:
+    <ul>
+       <li>Consultant Maria explaining about input validation <a href="../movies/GolpedelDestino1a.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>Wikipedia on ShellShock <a href="https://en.wikipedia.org/wiki/Shellshock_(software_bug)">here</a>.</li>
+      <li>Wikipedia on Injections <a href="https://en.wikipedia.org/wiki/Code_injection">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 9"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 9 (Web Applications 2), with slides <a href="topic9/Lect9WebApplications.pdf">here</a>. </h2>
+<ul>
+  <li>Videos:
+    <ul>
+       <li>XSS - Cross Site Scripting (storage) <a href="../movies/XSSStored.mp4">here</a>.</li>
+       <li>XSS - Cross Site Scripting (reflected) <a href="../movies/XSSReflected.mp4">here</a>.</li>
+       <li>CSRF - Cross Site Request Forgery <a href="../movies/csrf.mp4">here</a>.</li>
+       <li>Consultant Maria giving more advice <a href="../movies/GolpedelDestino2a.mp4">here</a>.</li>
+       <li>Symantec on clickjacking  <a href="../movies/ClickJack.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+      <li>Wikipedia on XSS <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a name="Topic 10"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 10 (Memory issues), with slides <a href="topic10/Lect10MachineArchitecture1.pdf">here</a>,
+and a handout  <a href="topic10/HandoutTopic10MachineArchitecture.pdf">here</a>.</h2>
+
+<ul>
+  <li>Videos:
+    <ul>
+       <li>The architect on memory <a href="../movies/matrixprogrammer1.mp4">here</a>.</li>
+       <li>Saruman on Buffer Overflow attacks <a href="../movies/LOTRBufOvflo1.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+       <li>Historical paper on buffer overflows <a href="Phrack.html">here</a>.</li>
+       <li>Wikipedia on return-to-libc <a href="https://en.wikipedia.org/wiki/Return-to-libc_attack">here</a>.</li>
+       <li>Wikipedia on return-oriented-programming <a href="https://en.wikipedia.org/wiki/Return-oriented_programming">here</a>.</li>
+       <li>Heap overflows <a href="http://www.h-online.com/security/features/A-Heap-of-Risk-747161.html">here</a>.</li>
+       <li>Microsoft GDI+ Heap Overflow attack <a href="http://technet.microsoft.com/en-us/security/bulletin/MS09-062">here</a>.</li>
+       <li>Wikipedia on Heartbleed <a href="http://en.wikipedia.org/wiki/Heartbleed">here</a>.</li>
+       <li> Manual pages for strcpy <a href="http://www.manpagez.com/man/3/strcpy/">here</a>.</li>
+       <li> Wikipedia on modular programming <a href="http://en.wikipedia.org/wiki/Modular_programming">here</a>.</li>
+       <li> Wikipedia on design-by-contract <a href="http://en.wikipedia.org/wiki/Design_by_contract">here</a>.</li>
+       <li> Wikipedia on Eiffel <a href="http://en.wikipedia.org/wiki/Eiffel_(programming_language)">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+
+<h2><a name="Topic 11"></a><img src="../../grenbull.gif" align="bottom" height="18" width="18">
+Topic 11 (Software and hardware we rely on), with slides <a href="topic11/Lect11MachineArchitecture2.pdf">here</a></h2>
+<ul>
+  <li>Videos:
+    <ul>
+       <li>Batman, Robin, and challenge-response protocols <a href="../movies/Batman1a.mp4">here</a>.</li>
+       <li>Maria Sharapova explaining about secrets <a href="../movies/MariaSharapovaOnSecrets1a.mp4">here</a>.</li>
+       <li>Thunderbirds classify smartcard attacks <a href="../movies/Thunderbirds2aa.mp4">here</a>.</li>
+    </ul>
+  </li>
+  <li>Useful URLs:
+    <ul>
+       <li>Weak Diffie Hellman <a href="http://weakdh.org/">here</a>.</li>
+       <li>Wikipedia on Kerberos <a href="http://en.wikipedia.org/wiki/Kerberos_%28protocol%29">here</a>.</li>
+       <li>Wikipedia on end-to-end voting systems <a href="http://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems">here</a>.</li>
+       <li>Wikipedia on oblivious transfer <a href="http://en.wikipedia.org/wiki/Oblivious_transfer">here</a>.</li>
+       <li>Blum's paper on coin flipping by telephone <a href="topic8/Coin_flipping.pdf">here</a>.</li>
+       <li>Paper on tampering <a href="topic11/tamper.pdf">here</a>.</li>
+       <li>Decompiling <a href="http://www.backerstreet.com/rec/rec.htm">here</a>.</li>
+       <li>Windows partial decompiler <a href="http://boomerang.sourceforge.net/">here</a>.</li>
+       <li>Java decompiler <a href="http://en.wikipedia.org/wiki/Java_Decompiler">here</a>.</li>
+       <li>Recovering OpenSSL secrets - a cache side-channel attack <a href="https://eprint.iacr.org/2014/140.pdf">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+
+</body>
+</html>
+ 
+
