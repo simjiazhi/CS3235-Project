@@ -1,0 +1,22 @@
+
+    body {
+    	background-color: #B1CEBA;
+    }
+	canvas, video {
+		width: 100%;
+		height: 100%;
+	}
+	
+	#camOriginal {
+		position:absolute;
+	}
+	#tmpCanvas {
+		position:absolute;
+	}
+	#camCanvas {
+		position:absolute;
+		display:none;
+	}
+	#snowCanvas {
+		position:absolute;
+	}

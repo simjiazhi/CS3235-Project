@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ConfettiCam</title>
+    <script type="text/javascript" src="lib/webcam.js"></script>
+    <script type="text/javascript" src="lib/confetti.js"></script>
+
+    <link href="stylesheets/confetti.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div hidden>
+    <video id="innercontainer7video" width="640" height="480"></video>
+    </div>
+    <div>
+    <canvas id="tmpCanvas" width="640" height="480"></canvas>
+    <canvas id="camCanvas" width="640" height="480"></canvas>
+    <canvas id="innercontainer7" width="640" height="480"></canvas>
+</div>
+    <script type="text/javascript" src="lib/confettiMain.js"></script>
+    
+    <button onclick="merge()" style="position:relative">(Un)Merge</button>
+    <button onclick="hideConfettiToggle()" style="position:relative">Release</button>
+<script>
+   initConfettiCam();
+</script>
+  </body>
+</html>

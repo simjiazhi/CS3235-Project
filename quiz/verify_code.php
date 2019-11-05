@@ -1,4 +1,16 @@
 <?php
+
+// prevent direct access
+
+if ($_SERVER['HTTP_REFERER'] == "http://group6-i.comp.nus.edu.sg/interface.php") {
+// continue checking
+
+} else {
+die('Access Denied.');
+exit(); //Stop running the script
+// go to form page again.
+}
+
 // SET HEADER
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");

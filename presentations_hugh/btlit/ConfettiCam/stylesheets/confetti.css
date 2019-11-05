@@ -1,0 +1,22 @@
+
+    body {
+    	background-color: #B1CEBA;
+    }
+	canvas, video {
+		width: 100%;
+		height: 100%;
+	}
+	
+	#innercontainer7video {
+		position:absolute;
+	}
+	#tmpCanvas {
+		position:absolute;
+	}
+	#camCanvas {
+		position:absolute;
+		display:none;
+	}
+	#innercontainer7 {
+		position:absolute;
+	}
