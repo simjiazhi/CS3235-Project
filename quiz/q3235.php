@@ -11,7 +11,7 @@
     // continue checking
     
   } else {
-    header("Location: http://group6-i.comp.nus.edu.sg/login.php");
+    die('Access Denied.');
     exit(); //Stop running the script
     // go to form page again.
   }
