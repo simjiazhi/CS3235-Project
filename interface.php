@@ -8,6 +8,8 @@
 	
 	// authenticate using attempts
 	// comment out if testing
+	
+	
 	if(isset($_GET["a"]) || isset($_GET["b"]))
 	{
 		
@@ -41,7 +43,7 @@
 	{
 		header("Location: error.php");
 	}
-
+	
 
 ?>
 
@@ -121,7 +123,7 @@
 		<Button onClick = "toggleQuizPanel();">Quiz</button>
 	</div>
 	
-	<!-- need prevent sql injection here -->
+	<!-- 
 	
 	<div class = "popup question" id = "askQn" style = "display: none">
 		<button class = "close" onClick = "closeQuestion();">x</button>
@@ -130,6 +132,17 @@
 		<br>
 		<br>
 		<button class = "close">Submit</button>
+	</div>
+	-->
+	
+	<div class = "popup question" id = "askQn" style = "display: none">
+		<button class = "close" onClick = "closeQuestion();">x</button>
+		<p><b>Ask a question:</b></p>
+		<input type = "text" id = "Name" placeholder = "Enter name here"><br><br>
+		<textarea rows="4" cols="50" id = "QuestionArea" maxlength="200" placeholder = "Enter question here"></textarea>
+		<br>
+		<br>
+		<button class = "close" onClick="submitQuestion();">Submit</button>
 		
 		
 	</div>
@@ -219,6 +232,24 @@
             }
         });
     });
+	
+	function submitQuestion() {
+		var name = document.getElementById('Name').value;
+		var question = document.getElementById('QuestionArea').value;
+
+		$.ajax({
+			  type: 'POST',
+			  url: 'questions/submitQuestion.php',
+			  data: ({name:name, question: question}),
+			  cache: false,
+			  success: function(result){
+				//var arr=JSON.parse(result);
+				//alert(arr['name'] + " " + arr['question']);
+				alert(result); 
+			}
+		});
+			
+	}
 
 </script>
 

@@ -3,7 +3,7 @@
 <head>
 <title>Login</title>
 </head>
-<script src="jquery-3.4.1.min.js"></script>
+<script src="plugins/jquery-3.4.1.min.js"></script>
 <body>
 
 Username: <input type="text" id="id"/><br/>
@@ -21,15 +21,16 @@ Password: <input type="password" id="password"/><br/>
 		else {
 			$.ajax({
 				type: 'POST',
-				url: 'profCredCheck.php',
+				url: 'http://group6-i.comp.nus.edu.sg/questions/profCredCheck.php',
 				cache: false,
 				success: function(result){
-					var arr=JSON.parse(result);
 					console.log(result);
+					var arr=JSON.parse(result);
+					
 					if(arr[0]==name&&arr[1]==pass)
 					{
 						alert("Welcome");
-						window.location.href="profSide.php";
+						window.location.href="http://group6-i.comp.nus.edu.sg/questions/profSide.php";
 						return true;
 					}
 					else{
